@@ -1,4 +1,4 @@
-settings:
+setup:
   default: >-
     [{"tag":"about this site","url":"/faq"},
     {"tag":"your preferences","url":"/my/preferences"}]

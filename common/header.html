@@ -1,9 +1,15 @@
 <script type="text/discourse-plugin" version="0.8">
+
+    function parseSettings() {
+        return JSON.parse(settings.setup);
+    }
+
     api.modifyClass("component:topic-category", {
       didInsertElement: function() {
         this._super();
         if (this.topic.tags.includes('aggregation')) {
-            console.log(this.topic.tags)
+            console.log(this.topic.tags);
+            console.log(parseSettings);
         } else {
             console.log("nothing found");
         }
