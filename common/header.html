@@ -1,9 +1,11 @@
 <script type="text/discourse-plugin" version="0.8">
 
     function parseSettings() {
-        vat tags = [];
+        var tags = [];
         var data = JSON.parse(settings.setup);
-        return JSON.parse(settings.setup);
+        console.log(this.topic.tags);
+        console.log(this.topic.tags.length);
+        return data;
     }
 
     api.modifyClass("component:topic-category", {
