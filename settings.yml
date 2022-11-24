@@ -1,9 +1,27 @@
 setup:
-  type: list
-  default: 'community, https://mongodb.com/community/forums'
-  description: |
-    Each line should be in the format of "<code>tag</code>, <code>URL</code>".<br/><br/>
-    <ul>
-    <li>The tag is the actual tag name, for example /tag/<b>mongodb</b>/</li>
-    <li>The URL is whatever URL you wish them to land on once the button is clicked</li>
-    </ul>
+  default: >-
+    [{"icon":"info-circle","text":"about this site","url":"/faq"},
+    {"icon":"users","text":"meet our staff","url":"/about"},
+    {"icon":"star","text":"your preferences","url":"/my/preferences"}]
+  json_schema: '{
+    "type": "array",
+    "format": "table",
+    "uniqueItems": true,
+    "items": {
+    "type": "object",
+    "properties": {
+    "icon": {
+    "type": "string",
+    "minLength": 1
+    },
+    },
+    "text": {
+    "type": "string",
+    "minLength": 1
+    },
+    "url": {
+    "type": "string"
+    }
+    },
+    "additionalProperties": false
+    }}'
