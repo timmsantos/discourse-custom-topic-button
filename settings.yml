@@ -1,7 +1,7 @@
-banner_links:
+settings:
   default: >-
-    [{"icon":"info-circle","text":"about this site","url":"/faq"},
-    {"icon":"star","text":"your preferences","url":"/my/preferences"}]
+    [{"tag":"about this site","url":"/faq"},
+    {"tag":"your preferences","url":"/my/preferences"}]
   json_schema: '{
     "type": "array",
     "format": "table",
@@ -9,11 +9,7 @@ banner_links:
     "items": {
       "type": "object",
       "properties": {
-        "icon": {
-          "type": "string",
-          "minLength": 1
-          },
-        "text": {
+        "tag": {
           "type": "string", "minLength": 1
           },
         "url": { "type": "string" }
