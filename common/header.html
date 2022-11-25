@@ -10,6 +10,8 @@
         this._super();
         let data = parseSettings();
         for(let i=0; i < data.length; i++){
+            console.log("data[i]: " + data[i]);
+            console.log("tags: " + this.topic.tags);
             if(this.topic.tags.includes(data[i].key)){
                 console.log("WE FOUND EM BOYS");
             } else {
