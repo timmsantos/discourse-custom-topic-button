@@ -23,12 +23,12 @@
 
   const h = require("virtual-dom").h;
 
-  api.createWidget("my-first-widget", {
-    tagName: "div.my-widget",
+  api.createWidget("custom-button-widget", {
+    tagName: "div.custom-button",
 
     html() {
       if (tagged) {
-        return h('h1', "Hello World!");
+        return h('div', "Hello World!");
       } else {
         return h('div', " ");
       }
@@ -40,5 +40,5 @@
 
 
 <script type="text/x-handlebars" data-template-name="/connectors/topic-category/foobar2">
-    {{mount-widget widget="my-first-widget"}}
+    {{mount-widget widget="custom-button-widget"}}
 </script>
