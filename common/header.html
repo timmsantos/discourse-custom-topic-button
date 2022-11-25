@@ -7,13 +7,13 @@
     api.modifyClass("component:topic-category", {
       didInsertElement: function() {
         this._super();
-        if (this.topic.tags.includes('aggregation')) {
-            console.log(this.topic.tags);
-            console.log(parseSettings()[0]);
-        } else {
-            console.log("nothing found");
+        for (let i=0; i < this.topic.tags.length; i++){
+            if(this.topic.tags.includes(parseSettings()[i].key)){
+                console.log("we found em boys");
+            } else {
+                console.log("no");
+            }
         }
-        
       }
     });
 </script>
