@@ -30,7 +30,7 @@
 
     html() {
       if (tagged) {
-        return h("a.custom-button", {href: url}, "MUG Homepage");
+        return h("a.custom-button", {href: url, title:"MUG Homepage", target: "_blank"}, "MUG Homepage");
       } else {
         return h('div', " ");
       }
