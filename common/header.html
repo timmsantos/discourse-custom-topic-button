@@ -1,7 +1,6 @@
 <script type="text/discourse-plugin" version="0.8">
 
     function parseSettings() {
-        var tags = [];
         var data = JSON.parse(settings.setup);
         return data;
     }
@@ -12,7 +11,7 @@
         data = parseSettings();
         for(let i=0; i < this.topic.tags.length; i++){
             for(let j=0; j < data; j++){
-                if Object.values(data[j].includes(this.topic.tags[i])) {
+                if (Object.values(data[j].includes(this.topic.tags[i]))) {
                     console.log(this.topic.tags);
                 } else {
                     console.log('cant find it');
