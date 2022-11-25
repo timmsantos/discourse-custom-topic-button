@@ -2,7 +2,7 @@
 
     function parseSettings() {
         var data = JSON.parse(settings.setup);
-        return data;
+        return JSON.parse(settings.setup);
     }
 
     api.modifyClass("component:topic-category", {
