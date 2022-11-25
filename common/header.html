@@ -20,4 +20,20 @@
         }
       }
     });
+
+  const h = require("virtual-dom").h;
+
+  api.createWidget("my-first-widget", {
+    tagName: "div.my-widget",
+
+    html() {
+      return h('h1', "Hello World!");
+    }
+  });
+
+</script>
+
+
+<script type="text/x-handlebars" data-template-name="/connectors/topic-category/foobar2">
+    {{mount-widget widget="my-first-widget"}}
 </script>
