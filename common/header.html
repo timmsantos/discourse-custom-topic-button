@@ -2,6 +2,7 @@
 
     function parseSettings() {
         var data = JSON.parse(settings.setup);
+        console.log("JSON: " + JSON.parse(settings.setup));
         return JSON.parse(settings.setup);
     }
 
@@ -10,7 +11,6 @@
         this._super();
         let data = parseSettings();
         for(let i=0; i < data.length; i++){
-            console.log("data " + data);
             console.log("tags: " + this.topic.tags);
             if(this.topic.tags.includes(data[i].key)){
                 console.log("WE FOUND EM BOYS");
