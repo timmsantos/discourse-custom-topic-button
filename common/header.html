@@ -30,14 +30,7 @@
 
     html() {
       if (tagged) {
-        return h(
-                "a.custom-button",
-                {
-                    href: url,
-                    title: "MUG Homepage",
-                    target: "_blank"
-                }
-            ));
+        return h("div", "hello world!");
       } else {
         return h('div', " ");
       }
