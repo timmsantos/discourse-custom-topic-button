@@ -12,7 +12,7 @@
         const data = parseSettings();
         for (let i=0; i < this.topic.tags.length; i++){
             console.log("tags of this page: " + this.topic.tags);
-            console.log("tags in settings being checked: " data[i]["tags"]);
+            console.log("tags in settings being checked: + " data[i]["tags"]);
             if(this.topic.tags.includes(data[i]["tag"])){
                 console.log("we found em boys");
                 tagged = true;
