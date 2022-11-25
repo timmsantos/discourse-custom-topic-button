@@ -27,7 +27,12 @@
     tagName: "div.my-widget",
 
     html() {
-      return h('h1', "Hello World!");
+      if (tagged) {
+        return h('h1', "Hello World!");
+      } else {
+        return h('div', " ");
+      }
+      
     }
   });
 
