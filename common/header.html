@@ -8,7 +8,7 @@
     api.modifyClass("component:topic-category", {
       didInsertElement: function() {
         this._super();
-        data = parseSettings();
+        let data = parseSettings();
         for(let i=0; i < this.topic.tags.length; i++){
             for(let j=0; j < data; j++){
                 if (Object.values(data[j].includes(this.topic.tags[i]))) {
