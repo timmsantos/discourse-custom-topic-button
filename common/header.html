@@ -9,13 +9,11 @@
       didInsertElement: function() {
         this._super();
         let data = parseSettings();
-        for(let i=0; i < this.topic.tags.length; i++){
-            for(let j=0; j < data; j++){
-                if (Object.values(data[j].includes(this.topic.tags[i]))) {
-                    console.log(this.topic.tags);
-                } else {
-                    console.log('cant find it');
-                }
+        for(let i=0; i < data.length; i++){
+            if(this.topic.tags.includes(data[i].key)){
+                console.log("WE FOUND EM BOYS");
+            } else {
+                console.log("Nope");
             }
         }
       }
