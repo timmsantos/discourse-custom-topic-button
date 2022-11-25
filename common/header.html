@@ -7,8 +7,8 @@
     api.modifyClass("component:topic-category", {
       didInsertElement: function() {
         this._super();
-        console.log(parseSettings());
-        console.log(parseSettings()[0]);
+        console.log(typeof parseSettings());
+        console.log(typeof parseSettings()[0]);
         for (let i=0; i < this.topic.tags.length; i++){
             if(this.topic.tags.includes(parseSettings()[i].key)){
                 console.log("we found em boys");
