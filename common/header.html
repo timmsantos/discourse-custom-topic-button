@@ -11,7 +11,7 @@
       didInsertElement: function() {
         this._super();
         let arrdic = parseSettings();
-        for(let i=0; i < data.length; i++){
+        for(let i=0; i < arrdic.length; i++){
             console.log("tags: " + this.topic.tags);
             if(this.topic.tags.includes(data[i].key)){
                 console.log("WE FOUND EM BOYS");
