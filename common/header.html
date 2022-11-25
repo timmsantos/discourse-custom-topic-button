@@ -4,6 +4,7 @@
         return JSON.parse(settings.setup);
     }
     var tagged = false;
+    var url = "";
 
     api.modifyClass("component:topic-category", {
       didInsertElement: function() {
@@ -13,6 +14,7 @@
             if(this.topic.tags.includes(data[i]["tag"])){
                 console.log("we found em boys");
                 tagged = true;
+                url = data[i]["url"];
                 break;
             } else {
                 console.log("no");
@@ -23,12 +25,22 @@
 
   const h = require("virtual-dom").h;
 
-  api.createWidget("custom-button-widget", {
+  api.createWidget("custom-button-widget", (helper) => {
     tagName: "div.custom-button",
 
     html() {
       if (tagged) {
-        return h('div', "Hello World!");
+        return h(
+            helper.h(
+                "a.custom-button",
+                {
+                    href: url,
+                    title: "MUG Homepage",
+                    target: "_blank",
+                },
+            calendar
+            )
+        );
       } else {
         return h('div', " ");
       }
