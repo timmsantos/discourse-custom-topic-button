@@ -3,6 +3,7 @@
     function parseSettings() {
         return JSON.parse(settings.setup);
     }
+    var tagged = false;
 
     api.modifyClass("component:topic-category", {
       didInsertElement: function() {
@@ -11,6 +12,8 @@
         for (let i=0; i < this.topic.tags.length; i++){
             if(this.topic.tags.includes(data[i]["tag"])){
                 console.log("we found em boys");
+                tagged = true;
+                break;
             } else {
                 console.log("no");
             }
