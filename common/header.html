@@ -1,17 +1,10 @@
 <script type="text/discourse-plugin" version="0.8">
 
-    function parseSettings() {
-        var data = JSON.parse(settings.setup);
-        console.log("Settings: " + settings.setup);
-        console.log("JSON: " + JSON.parse(settings.setup));
-        return JSON.parse(settings.setup);
-    }
-
     api.modifyClass("component:topic-category", {
       didInsertElement: function() {
         this._super();
-        let arrdic = parseSettings();
-        for(let i=0; i < arrdic.length; i++){
+        let data = settings.setup;
+        for(let i=0; i < data.length; i++){
             console.log("tags: " + this.topic.tags);
             if(this.topic.tags.includes(data[i].key)){
                 console.log("WE FOUND EM BOYS");
