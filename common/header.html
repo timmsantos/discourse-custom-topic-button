@@ -25,21 +25,19 @@
 
   const h = require("virtual-dom").h;
 
-  api.createWidget("custom-button-widget", (helper) => {
+  api.createWidget("custom-button-widget", {
     tagName: "div.custom-button",
 
     html() {
       if (tagged) {
         return h(
-            helper.h(
                 "a.custom-button",
                 {
                     href: url,
                     title: "MUG Homepage",
-                    target: "_blank",
+                    target: "_blank"
                 }
-            )
-        );
+            ));
       } else {
         return h('div', " ");
       }
