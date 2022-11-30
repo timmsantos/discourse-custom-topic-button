@@ -4,12 +4,6 @@
         return JSON.parse(settings.setup);
     }
 
-    function parseSuffix() {
-      let suffixString = String(settings.suffix);
-      let suffix = suffixString.split("|");
-      return(suffix);
-    }
-
     var tagged = false;
     var url = "";
 
@@ -17,26 +11,20 @@
       pluginId: "returnTags",
       didInsertElement: function() {
         this._super();
-        if (parseSuffix() == "") {
-          console.log ("parsedsuffix is blank");
-        }
-        const suffixCheck = parseSuffix().filter(element => this.topic.tags.includes(element));
-        console.log(suffixCheck);
-        if (suffixCheck != []) {
-          console.log ("suffixcheck is empty");
-        }
-        const data = parseSettings();
-        for (let i=0; i < data.length; i++){
-            console.log("tags of this page: " + this.topic.tags);
-            console.log("tags in settings being checked:" + data[i]["tags"]);
-            if(this.topic.tags.includes(data[i]["tag"])){
-                console.log("we found em boys");
-                tagged = true;
-                url = data[i]["url"];
-                break;
-            } else {
-                console.log("no");
-            }
+        if (this.topic.tags.length > 0){
+          const data = parseSettings();
+          for (let i=0; i < data.length; i++){
+              console.log("tags of this page: " + this.topic.tags);
+              console.log("tags in settings being checked:" + data[i]["tags"]);
+              if(this.topic.tags.includes(data[i]["tag"])){
+                  console.log("we found em boys");
+                  tagged = true;
+                  url = data[i]["url"];
+                  break;
+              } else {
+                  console.log("no");
+              }
+          }
         }
       }
     });
