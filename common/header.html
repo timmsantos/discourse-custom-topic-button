@@ -4,10 +4,10 @@
         return JSON.parse(settings.setup);
     }
 
-    function parseSuffix(tag) {
+    function parseSuffix(tags) {
       if (settings.enable_suffix) {
         let suffixList = settings.suffix.split("|");
-        const intersect = tag.filter((element) => suffixList.some(suffix => element.endsWith(suffix)))
+        const intersect = tags.filter((element) => suffixList.some(suffix => element.endsWith(suffix)));
         return(intersect);
       }
       return [];
@@ -21,8 +21,8 @@
       didInsertElement: function() {
         this._super();
         if (this.topic.tags.length > 0) {
-          console.log("setting: " + settings.enable_suffix);
-          console.log("suffix: " + parseSuffix(this.topic.tags).length > 0);
+          console.log("setting: " + !settings.enable_suffix);
+          console.log("suffix: " + parseSuffix(this.topic.tags).length);
           if (!settings.enable_suffix || parseSuffix(this.topic.tags).length > 0) {
             const data = parseSettings();
             for (let i=0; i < data.length; i++){
