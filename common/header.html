@@ -6,12 +6,12 @@
 
     function parseSuffix(tags) {
       if (settings.enable_suffix) {
-        if (!String(settings.suffix).isEmpty()) {
-          let suffixList = settings.suffix.split("|");
-          const intersect = tags.filter((element) => suffixList.some(suffix => element.endsWith(suffix)));
-          console.log("intersect: " + intersect);
-          return(intersect);
-        }
+        let suffixList = settings.suffix.split("|");
+        console.log("suffix list: " + suffixList);
+        console.log("suffix list type: " + typeof suffixList);
+        const intersect = tags.filter((element) => suffixList.some(suffix => element.endsWith(suffix)));
+        console.log("intersect: " + intersect);
+        return(intersect);
       }
       return [];
     }
