@@ -7,7 +7,7 @@
     function parseSuffix(tags) {
       if (settings.enable_suffix) {
         let suffixList = settings.suffix.split("|");
-        console.log("suffix list: " + suffixList);
+        console.log("suffix list length: " + suffixList.length);
         console.log("suffix list type: " + typeof suffixList);
         const intersect = tags.filter((element) => suffixList.some(suffix => element.endsWith(suffix)));
         console.log("intersect: " + intersect);
