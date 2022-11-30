@@ -6,8 +6,9 @@
 
     function parseSuffix(tags) {
       if (settings.enable_suffix) {
+        console.log (settings.suffix);
+        console.log (typeof settings.suffix);
         let suffixList = settings.suffix.split("|");
-        console.log("suffix list length: " + Object.keys(suffixList).length);
         const intersect = tags.filter((element) => suffixList.some(suffix => element.endsWith(suffix)));
         console.log("intersect: " + intersect);
         return(intersect);
@@ -23,13 +24,10 @@
       didInsertElement: function() {
         this._super();
         if (this.topic.tags.length > 0) {
-          console.log("setting: " + !settings.enable_suffix);
           console.log("suffix: " + parseSuffix(this.topic.tags).length);
           if (!settings.enable_suffix || parseSuffix(this.topic.tags).length > 0) {
             const data = parseSettings();
             for (let i=0; i < data.length; i++){
-                console.log("tags of this page: " + this.topic.tags);
-                console.log("tags in settings being checked:" + data[i]["tags"]);
                 if(this.topic.tags.includes(data[i]["tag"])){
                     console.log("we found em boys");
                     tagged = true;
