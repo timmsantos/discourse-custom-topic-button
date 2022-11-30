@@ -5,7 +5,8 @@
     }
 
     function parseSuffix() {
-      let suffix = settings.suffix;
+      suffixString = String(settings.suffix);
+      let suffix = suffixString.split("|");
       return(suffix);
     }
 
