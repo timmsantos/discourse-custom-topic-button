@@ -7,10 +7,11 @@
     function parseSuffix(tags) {
       if (settings.enable_suffix) {
         let suffixList = settings.suffix.split("|");
-        console.log("suffix list" + suffixList);
-        const intersect = tags.filter((element) => suffixList.some(suffix => element.endsWith(suffix)));
-        console.log("intersect: " + intersect);
-        return(intersect);
+        if (!suffixList.isEmpty()) {
+          const intersect = tags.filter((element) => suffixList.some(suffix => element.endsWith(suffix)));
+          console.log("intersect: " + intersect);
+          return(intersect);
+        }
       }
       return [];
     }
