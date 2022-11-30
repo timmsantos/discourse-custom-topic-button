@@ -18,7 +18,11 @@ setup:
       }
   }'
 
+enable_suffix:
+  default: false
+  description: 'This optimises and lessens the load on the theme component loading on every single topic page by adding a the common suffix for tags you want to be checked'
+
 suffix:
   type: list
   default: '-mug'
-  description: 'This optimises and lessens the load on the theme component loading on every single topic page by adding a the common suffix for tags you want to be checked'
+  description: 'List your suffixes here per line.'
