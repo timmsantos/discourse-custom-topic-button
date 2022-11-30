@@ -17,3 +17,8 @@ setup:
         "additionalProperties": false
       }
   }'
+
+suffix:
+  type: list
+  default: '*-mug'
+  description: 'This optimises and lessens the load on the theme component loading on every single topic page by adding a the common suffix for tags you want to be checked'
