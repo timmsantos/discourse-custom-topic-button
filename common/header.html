@@ -9,7 +9,6 @@
         if (settings.suffix.trim().length != 0) {
           let suffixList = settings.suffix.split("|");
           const intersect = tags.filter((element) => suffixList.some(suffix => element.endsWith(suffix)));
-          console.log("intersect: " + intersect);
           return(intersect);
         }
       }
@@ -24,12 +23,10 @@
       didInsertElement: function() {
         this._super();
         if (this.topic.tags.length > 0) {
-          console.log("suffix: " + parseSuffix(this.topic.tags).length);
           if (!settings.enable_suffix || parseSuffix(this.topic.tags).length > 0) {
             const data = parseSettings();
             for (let i=0; i < data.length; i++){
                 if(this.topic.tags.includes(data[i]["tag"])){
-                    console.log("we found em boys");
                     tagged = true;
                     url = data[i]["url"];
                     break;
