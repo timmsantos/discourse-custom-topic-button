@@ -5,15 +5,17 @@
     }
 
     function parseSuffix() {
-      console.log(settings.suffix);
+      return(settings.suffix);
     }
 
     var tagged = false;
     var url = "";
 
     api.modifyClass("component:topic-category", {
+      pluginId: "returnTags",
       didInsertElement: function() {
         this._super();
+        console.log(parseSuffix());
         const data = parseSettings();
         for (let i=0; i < data.length; i++){
             console.log("tags of this page: " + this.topic.tags);
