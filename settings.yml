@@ -1,0 +1,28 @@
+setup:
+  default: >-
+    [{"tag":"about this site","url":"/faq"},
+    {"tag":"your preferences","url":"/my/preferences"}]
+  json_schema: '{
+    "type": "array",
+    "format": "table",
+    "uniqueItems": true,
+    "items": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "type": "string", "minLength": 1
+          },
+        "url": { "type": "string" }
+          },
+        "additionalProperties": false
+      }
+  }'
+
+enable_suffix:
+  default: false
+  description: 'This optimises and lessens the load on the theme component loading on every single topic page by adding a the common suffix for tags you want to be checked'
+
+suffix:
+  type: list
+  default: '-mug'
+  description: 'List your suffixes here per line.'
