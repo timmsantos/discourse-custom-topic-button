@@ -25,7 +25,7 @@
       didInsertElement: function() {
         this._super();
         console.log(this.topic);
-        console.log(if this.topic.tags);
+
         if (this.topic.tags.length > 0) {
           if (!settings.enable_suffix || parseSuffix(this.topic.tags).length > 0) {
             const data = parseSettings();
