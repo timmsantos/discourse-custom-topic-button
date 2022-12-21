@@ -1,8 +1,11 @@
 <script type="text/discourse-plugin" version="0.8">
 
+  //Pulls settings (tag + URL) set by user from the UI
     function parseSettings() {
         return JSON.parse(settings.setup);
     }
+  
+  //If setting for suffix is enabled, this parses them and checks if any match
 
     function parseSuffix(tags) {
       if (settings.enable_suffix) {
@@ -18,11 +21,16 @@
     var tagged = false;
     var url = "";
 
+
+    // The component:topic-category is the location of the button. pluginId is there so that there is no error returned for what this modify class is for. this._super() checks the component if it's there, then logic follows.
+
     api.modifyClass("component:topic-category", {
       pluginId: "returnTags",
       didInsertElement: function() {
         this._super();
-        if (this.topic.tags.length > 0) {
+
+        if (typeof this.topic.tags != "undefined" && this.topic.tags.length > 0) {
+
           if (!settings.enable_suffix || parseSuffix(this.topic.tags).length > 0) {
             const data = parseSettings();
             for (let i=0; i < data.length; i++){
@@ -36,6 +44,8 @@
         }
       }
     });
+
+  // Below shows the process of creating the widget: naming it, adding a html tag (div), and returning the button.
 
   const h = require("virtual-dom").h;
 
