@@ -1,5 +1,6 @@
 {
     "name": "Custom Topic Button",
     "about_url": "https://github.com/timmsantos/discourse-custom-topic-button",
-    "license_url": "https://github.com/timmsantos/discourse-custom-topic-button/blob/main/LICENSE"
+    "license_url": "https://github.com/timmsantos/discourse-custom-topic-button/blob/main/LICENSE",
+    "component": true
 }

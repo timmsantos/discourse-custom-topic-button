@@ -1,0 +1,72 @@
+<script type="text/discourse-plugin" version="0.8">
+
+  //Pulls settings (tag + URL) set by user from the UI
+    function parseSettings() {
+        return JSON.parse(settings.setup);
+    }
+  
+  //If setting for suffix is enabled, this parses them and checks if any match
+
+    function parseSuffix(tags) {
+      if (settings.enable_suffix) {
+        if (settings.suffix.trim().length != 0) {
+          let suffixList = settings.suffix.split("|");
+          const intersect = tags.filter((element) => suffixList.some(suffix => element.endsWith(suffix)));
+          return(intersect);
+        }
+      }
+      return [];
+    }
+
+    var tagged = false;
+    var url = "";
+
+
+    // The component:topic-category is the location of the button. pluginId is there so that there is no error returned for what this modify class is for. this._super() checks the component if it's there, then logic follows.
+
+    api.modifyClass("component:topic-category", {
+      pluginId: "returnTags",
+      didInsertElement: function() {
+        this._super();
+        tagged = false;
+        if (typeof this.topic.tags != "undefined" && this.topic.tags.length > 0) {
+
+          if (!settings.enable_suffix || parseSuffix(this.topic.tags).length > 0) {
+            const data = parseSettings();
+            for (let i=0; i < data.length; i++){
+                if(this.topic.tags.includes(data[i]["tag"])){
+                    tagged = true;
+                    url = data[i]["url"];
+                    break;
+                } else {
+                  tagged = false;
+                }
+            }
+          }
+        }
+      }
+    });
+
+  // Below shows the process of creating the widget: naming it, adding a html tag (div), and returning the button.
+
+  const h = require("virtual-dom").h;
+
+  api.createWidget("custom-button-widget", {
+    tagName: "div",
+
+    html() {
+      if (!tagged) {
+        return h('div', " ");
+      } else {
+        return h("a.btn-default.custom-button", {href: url, title:"MUG Homepage", target: "_blank"}, "MUG Homepage");
+      }
+      
+    }
+  });
+
+</script>
+
+
+<script type="text/x-handlebars" data-template-name="/connectors/topic-category/foobar2">
+    {{mount-widget widget="custom-button-widget"}}
+</script>
