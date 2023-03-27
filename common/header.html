@@ -29,8 +29,6 @@
       didInsertElement: function() {
         this._super();
         tagged = false;
-        console.log(this.topic.tags);
-        console.log("tagged in modifyClass before logic: " + tagged);
         if (typeof this.topic.tags != "undefined" && this.topic.tags.length > 0) {
 
           if (!settings.enable_suffix || parseSuffix(this.topic.tags).length > 0) {
@@ -39,7 +37,6 @@
                 if(this.topic.tags.includes(data[i]["tag"])){
                     tagged = true;
                     url = data[i]["url"];
-                    console.log("tagged in modifyClass after logic: " + tagged);
                     break;
                 } else {
                   tagged = false;
@@ -58,7 +55,6 @@
     tagName: "div",
 
     html() {
-      console.log("tagged in html(): " + tagged);
       if (!tagged) {
         return h('div', " ");
       } else {
