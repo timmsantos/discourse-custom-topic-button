@@ -29,6 +29,7 @@
       didInsertElement: function() {
         this._super();
         tagged = false;
+
         if (typeof this.topic.tags != "undefined" && this.topic.tags.length > 0) {
 
           if (!settings.enable_suffix || parseSuffix(this.topic.tags).length > 0) {
@@ -40,6 +41,7 @@
                     break;
                 } else {
                   tagged = false;
+
                 }
             }
           }
