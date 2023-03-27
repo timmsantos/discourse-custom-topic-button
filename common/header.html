@@ -29,6 +29,7 @@
       didInsertElement: function() {
         this._super();
         console.log(this.topic.tags);
+        console.log("tagged in modifyClass: " + tagged);
         if (typeof this.topic.tags != "undefined" && this.topic.tags.length > 0) {
 
           if (!settings.enable_suffix || parseSuffix(this.topic.tags).length > 0) {
@@ -43,11 +44,6 @@
                 }
             }
           }
-          else {
-            tagged = false;
-          }
-        } else {
-          tagged = false;
         }
       }
     });
@@ -60,7 +56,7 @@
     tagName: "div",
 
     html() {
-      console.log(tagged);
+      console.log("tagged in html(): " + tagged);
       if (!tagged) {
         return h('div', " ");
       } else {
