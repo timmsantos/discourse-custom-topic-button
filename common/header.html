@@ -28,7 +28,6 @@
       pluginId: "returnTags",
       didInsertElement: function() {
         this._super();
-
         if (typeof this.topic.tags != "undefined" && this.topic.tags.length > 0) {
 
           if (!settings.enable_suffix || parseSuffix(this.topic.tags).length > 0) {
@@ -53,10 +52,10 @@
     tagName: "div",
 
     html() {
-      if (tagged) {
-        return h("a.btn-default.custom-button", {href: url, title:"MUG Homepage", target: "_blank"}, "MUG Homepage");
-      } else {
+      if (!tagged) {
         return h('div', " ");
+      } else {
+        return h("a.btn-default.custom-button", {href: url, title:"MUG Homepage", target: "_blank"}, "MUG Homepage");
       }
       
     }
