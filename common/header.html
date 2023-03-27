@@ -28,6 +28,7 @@
       pluginId: "returnTags",
       didInsertElement: function() {
         this._super();
+        tagged = false;
 
         if (typeof this.topic.tags != "undefined" && this.topic.tags.length > 0) {
 
@@ -38,6 +39,9 @@
                     tagged = true;
                     url = data[i]["url"];
                     break;
+                } else {
+                  tagged = false;
+
                 }
             }
           }
@@ -53,10 +57,10 @@
     tagName: "div",
 
     html() {
-      if (tagged) {
-        return h("a.btn-default.custom-button", {href: url, title:"MUG Homepage", target: "_blank"}, "MUG Homepage");
-      } else {
+      if (!tagged) {
         return h('div', " ");
+      } else {
+        return h("a.btn-default.custom-button", {href: url, title:"MUG Homepage", target: "_blank"}, "MUG Homepage");
       }
       
     }
