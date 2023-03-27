@@ -28,6 +28,7 @@
       pluginId: "returnTags",
       didInsertElement: function() {
         this._super();
+        tagged = false;
         console.log(this.topic.tags);
         console.log("tagged in modifyClass before logic: " + tagged);
         if (typeof this.topic.tags != "undefined" && this.topic.tags.length > 0) {
