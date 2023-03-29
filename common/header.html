@@ -41,7 +41,6 @@
                     break;
                 } else {
                   tagged = false;
-
                 }
             }
           }
@@ -57,7 +56,7 @@
     tagName: "div",
 
     html() {
-      if (!tagged) {
+      if (tagged === false) {
         return h('div', " ");
       } else {
         return h("a.btn-default.custom-button", {href: url, title:"MUG Homepage", target: "_blank"}, "MUG Homepage");
